@@ -1,38 +1,414 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;500;700&display=swap');
+
+body{
+    margin: 0;
+    font-family: Poppins;
+    background-color: #010824;
+    color: #eee;
+    font-size: 15px;
+    min-height: 100vh;
+    background-image: linear-gradient(
+        to right, transparent 0 49px, #eee1 49px
+    ),
+    linear-gradient(
+        to bottom, transparent 0 49px, #eee1 49px
+    );
+    background-size: 50px 50px;
+    &::before{
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        content: '';
+        background-image: linear-gradient(
+            to right, #D02E23, #7A43B6
+        );
+        z-index: -1;
+        top: -200px;
+        left: calc(50% - 200px);
+        border-radius: 50% 50% 0% 0%;
+        pointer-events: none;
+        filter: blur(250px);
+    }
+}
+main{
+    width: 1300px;
+    max-width: 100%;
+    margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* navbar */
+header{
+    position: fixed;
+    width: 1300px;
+    max-width: 100%;
+    height: 60px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    & img{
+        width: 50px;
+    }
+    & .logo, nav{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        & span{
+            cursor: pointer;
+        }
+        & .active{
+            color: #e945e3;
+            text-shadow: 0 0 5px #7A43B6;
+        }
+    }
+    & .icon-bar{
+        width: 30px;
+        display: none;
+    }
+}
+/* home */
+section{
+    width: 1300px;
+    max-width: 100%;
+    margin: auto;
+    padding: 50px;
+    box-sizing: border-box;
+    top: 0;
+}
+/* .delay-02{
+    animation-delay: 0.2s!important;
+}
+.delay-04{
+    animation-delay: 0.4s!important;
+}
+.delay-06{
+    animation-delay: 0.6s!important;
+} */
+section.home{
+    padding-top: 150px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+    
+    & .content{
+        font-family: 'MuseoModerno', system-ui;
+        & .name{
+            font-size: 7em;
+            font-weight: bold;
+            line-height: 1em;
+            & span{
+                background-image: linear-gradient(to right, #7BE728, #F3265F, #7F40AC, #7BE728);
+                background-size: 200% auto;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+                animation: shine 5s linear infinite;
+            }
+        }
+        & .des{
+            color: #eee5;
+            margin: 30px 0;
+            border-left: .7em solid #e945e3;
+            padding-left: 2em;
+        }
+        & a{
+            display: block;
+            font-size: large;
+            color: #eee;
+            font-weight: bold;
+            text-decoration: none;
+            border: 1px solid #eee;
+            background-color:transparent;
+            width: max-content;
+            padding: 20px 30px;
+            border-radius: 40px;
+        }
+    }
+    & .avatar{
+        text-align: right;
+        & .card{
+            display: inline-flex;
+            flex-direction: column;
+            width: min(100%, 400px);
+            box-shadow: 0 150px 150px #e945e333;
+            transition: 0.5s;
+            &:hover{
+                box-shadow: 0 150px 150px #e945e355;
+            }
+            & img{
+                width: 100%;
+                height: min(50vh, 700px);
+                object-fit: cover;
+                object-position: top;
+                clip-path: polygon(81% 0, 100% 18%, 100% 100%, 0 100%, 0 0);
+            }
+            & .info{
+                background-color: #eee; 
+                color: #010824;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                text-align: center;
+                gap: 20px;
+                padding: 20px;
+                font-size: 1.2em;
+                & div:nth-child(1), div:nth-child(2), div:nth-child(3){
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+section.skills{
+    & .title{
+        text-align: center;
+        font-size: 5vw;
+        font-family: 'MuseoModerno', system-ui;
+    }
+    & .des{
+        color: #eee5;
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
+    }
+    & .list{
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-content: space-between;
+        gap: 3vw;
+        position: relative;
+        &::before{
+            position: absolute;
+            content: '';
+            width: 70%;
+            height: 70%;
+            background-image: linear-gradient(
+                -45deg, red, blue
+            );
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border-radius: 20px;
+            background-size: 200% auto;
+        }
+        & .item{
+            backdrop-filter: blur(50px);
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #01082488;
+            & svg{
+                font-size: 30px;
+                background-color: #eee2;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            & .des{
+                text-align: left;
+                width: 100%;
+                font-size: small;
+            }
+        }
+    }
+}
+section.projects{
+    & .title{
+        margin-top: 100px;
+        text-align: center;
+        font-size: 5vw;
+        font-family: 'MuseoModerno', system-ui;
+    }
+    & .des{
+        color: #eee5;
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
+    }
+    & .list{
+        margin-top: 50px;
+        & .item{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 100px;
+            gap: 20px;
+            & .images{
+                background-image: linear-gradient(
+                    -45deg, #473bb4, #be24a9
+                );
+                padding: 40px;
+                text-align: center;
+                border-radius: 20px;
+                overflow: hidden;
+                
+                & img{
+                    height: 400px;
+                    border-radius: 10px;
+                    box-shadow: 0 20px 40px #010824;
+                }
+            }
+            & .content{
+                & h3{
+                    font-size: 3em;
+                    margin: 0;
+                }
+                & .des{
+                    text-align: left;
+                    width: 100%;
+                }
+                & .mission{
+                    display: grid;
+                    grid-template-columns: 70px 1fr;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 10px;
+                    & div:nth-child(1) svg{
+                        background-color: #eee3;
+                        padding: 20px;
+                        font-size: 20px;
+                        border-radius: 15px;
+                    }
+                }
+            }
+        }
+        & .item:nth-child(2n){
+            & .images{
+                grid-column-start: 2;
+                grid-column-end: 3;
+            }
+            & .content{
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 1;
+            }
+        }
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section.contacts{
+    padding-bottom: 220px;
+    & .title{
+        text-align: center;
+        font-size: 5vw;
+        font-family: 'MuseoModerno', system-ui;
+    }
+    & .des{
+        color: #eee5;
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
+    }
+    & .list{
+        text-align: center;
+        & .item{
+            margin-top: 50px;
+        }
+    }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* animation */
+.animation{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0.5s;
+}
+.animation.active{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
 }
 
-.App-link {
-  color: #61dafb;
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media screen and (max-width: 1023px) {
+    section.home{
+        & .content{
+            & .name{
+                font-size: 4em;
+            }
+        }
+        & .avatar{
+            & img{
+                max-height: 500px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    section{
+        padding: 20px;
+        &.home{
+            grid-template-columns: 1fr;
+            padding-top: 70px;
+            & .content{
+                & a{
+                    margin: auto;
+                    font-size: small;
+                }
+            }
+            & .avatar{
+                grid-row-start: 1;
+            }
+        }
+        &.projects{
+            & .list{
+                & .item{
+                    grid-template-columns: 1fr;
+                    & .content{
+                        & h3{
+                            font-size: 1.2em;
+                            margin-bottom: 1em;
+                        }
+                    }
+                }
+                & .item:nth-child(2n){
+                    & .content, .images{
+                        grid-row-start: auto;
+                        grid-column-start: auto;
+                        grid-column-end: auto;
+                    }
+                }
+            }
+        }
+    }
+    header{
+        & nav{
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            inset: 0 auto 0 0;
+            background-color: #eee;
+            color: #0F1225;
+            padding: 50px;
+            box-sizing: border-box;
+            font-weight: bold;
+            left: -100%;
+            transition: .5s;
+        }
+        & .icon-bar{
+            display: block;
+        }
+        & nav.active{
+            left: 0;
+        } 
+    }
 }
