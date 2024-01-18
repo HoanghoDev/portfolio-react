@@ -15,7 +15,7 @@ return (
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores officiis beatae repellendus rem ullam, ipsam nemo dolorem dolorum illo laborum. Ea sed dolor ab qui, doloremque accusantium esse blanditiis possimus!
             </div>
             
-            <a href="http://" target="_blank" rel="noopener noreferrer" className='animation active '>
+            <a href="/democv.pdf" target="_blank" rel="noopener noreferrer" className='animation active '>
                 Download My CV
             </a>
         </div>
