@@ -1,15 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react' 
-import { connect, useDispatch } from 'react-redux'
-import { changeTabActive } from '../redux/actions'
+import React, { useRef, useState } from 'react' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faHtml5, faCss3, faJs, faVuejs, faLaravel } from '@fortawesome/free-brands-svg-icons';
 import CustomHook from './CustomHook';
 
-function Skills({activeTab}) {
+function Skills() {
   const divs = useRef([]);
   const scrollTab = useRef();
   CustomHook(scrollTab, divs);
-const dispatch = useDispatch();
 const [listSkills] = useState([
   {
     name: 'HTML',
@@ -65,9 +62,6 @@ const [listSkills] = useState([
     </section>
   )
 }
-const mapStateToProps = (state) => ({
-    activeTab: state.activeTab
-})
 
-export default connect(mapStateToProps)(Skills)
+export default Skills
 

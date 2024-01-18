@@ -1,11 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react' 
-import { connect, useDispatch } from 'react-redux'
-import { changeTabActive } from '../redux/actions'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState, useRef } from 'react' 
 import CustomHook from './CustomHook';
 
-function Contacts({activeTab}) {
-const dispatch = useDispatch();
+function Contacts() {
 const [listContacts] = useState([
   {
     title: 'Phone Number',
@@ -44,8 +40,4 @@ CustomHook(scrollTab, divs);
     </section>
   )
 }
-const mapStateToProps = (state) => ({
-    activeTab: state.activeTab
-})
-
-export default connect(mapStateToProps)(Contacts)
+export default Contacts

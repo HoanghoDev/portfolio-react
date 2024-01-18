@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react' 
-import { connect } from 'react-redux'
+import React, { useRef } from 'react' 
 import CustomHook from './CustomHook';
-function Home({activeTab}) {
+function Home() {
 const scrollTab = useRef();
 CustomHook(scrollTab);
 
@@ -34,8 +33,5 @@ return (
     </section>
     )
 }
-const mapStateToProps = (state) => ({
-    activeTab: state.activeTab
-})
 
-export default connect(mapStateToProps)(Home)
+export default Home

@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react' 
-import { connect, useDispatch } from 'react-redux'
-import { changeTabActive } from '../redux/actions'
+import React, { useState, useRef } from 'react' 
+import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPersonCircleQuestion, faEarthAmericas } from '@fortawesome/free-solid-svg-icons';
 import CustomHook from './CustomHook';
 
-function Projects({activeTab}) {
-const dispatch = useDispatch();
+function Projects() {
 const [listProjects] = useState([
   {
     name: 'Project Real-time chating in website',
@@ -75,8 +73,4 @@ CustomHook(scrollTab, divs);
     </section>
   )
 }
-const mapStateToProps = (state) => ({
-    activeTab: state.activeTab
-})
-
-export default connect(mapStateToProps)(Projects)
+export default Projects

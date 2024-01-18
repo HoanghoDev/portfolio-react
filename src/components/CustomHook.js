@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react' 
+import { useEffect } from 'react' 
 import { useSelector } from 'react-redux';
 
 const CustomHook = (refTab = null, refList = null) => {
